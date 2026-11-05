@@ -317,7 +317,7 @@ document.querySelectorAll('.fb').forEach(b=>b.addEventListener('click',()=>{
     sec.hidden=n===0;sec.querySelectorAll('.n').forEach(x=>x.textContent=n);sec.querySelectorAll('.of').forEach(x=>x.textContent=`de ${tot}`);
   });
 }));
-if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>{en.target.closest('section').querySelector('.bar').classList.toggle('on',!en.isIntersecting&&en.boundingClientRect.top<0);}),{threshold:0});main.querySelectorAll('.head').forEach(h=>io.observe(h));}
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>{en.target.closest('section').querySelector('.bar').classList.toggle('on',!en.isIntersecting&&en.boundingClientRect.bottom<=(en.rootBounds?en.rootBounds.top:56)+1);}),{threshold:0,rootMargin:'-56px 0px 0px 0px'});main.querySelectorAll('.head .alt').forEach(h=>io.observe(h));}
 status();
 </script>
 <script>(function(){var r=document.documentElement,K='df-theme',mq=matchMedia('(prefers-color-scheme: dark)');
