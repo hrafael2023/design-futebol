@@ -276,7 +276,7 @@ function cleanBg(url){return new Promise(res=>{const im=new Image();im.onload=()
 const chips=document.getElementById('chips');
 function setImg(wrap,d){const [k,f,id]=ESC[d[0]];
   wrap.innerHTML=`<img alt="Escudo do ${d[0]}" src="${EMB[f]||encodeURI(DIR[k]+'/'+f+'-logo-footylogos.png')}">`;
-  const img=wrap.firstChild;img.addEventListener('load',function cl(){img.removeEventListener('load',cl);if(img.src.startsWith('data:'))return;cleanBg(img.src).then(u=>{if(u!==img.src)img.src=u;});});img.addEventListener('error',function h(){if(!img.dataset.t){img.dataset.t=1;img.src=`https://drive.google.com/thumbnail?id=${id}&sz=w400`;}else{img.removeEventListener('error',h);wrap.innerHTML=ph(k);}});}
+  const img=wrap.firstChild;img.addEventListener('load',function cl(){img.removeEventListener('load',cl);if(img.src.startsWith('data:'))return;cleanBg(img.src).then(u=>{if(u!==img.src)img.src=u;});});img.addEventListener('error',function h(){img.removeEventListener('error',h);wrap.innerHTML=ph(k);});}
 [...D].sort((x,y)=>x[0].localeCompare(y[0],'pt-BR')).forEach(d=>{const b=document.createElement('figure');b.className='tile';b.tabIndex=0;b.setAttribute('role','button');b.setAttribute('aria-pressed','false');
   b.innerHTML=`<div class="img"></div><figcaption>${d[0]}<span>Série ${d[1]}</span></figcaption>`;
   setImg(b.firstChild,d);d.wrap=b.firstChild;
